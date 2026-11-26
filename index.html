@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yile Hua</title>
+  <meta name="author" content="Yile Hua">
+  <meta name="description" content="Yile Hua, University of Pennsylvania. 3D computer vision: 4D reconstruction of dynamic scenes from monocular video.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+  <table class="page"><tbody><tr><td>
+
+    <!-- Introduction -->
+    <table class="block stack"><tbody>
+      <tr>
+        <td class="pad" style="width:63%;">
+          <p class="name">Yile Hua</p>
+          <p>
+            I am a Master's student in Electrical Engineering at the
+            <a href="https://www.upenn.edu/">University of Pennsylvania</a>, where I work with
+            <a href="https://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a> at the
+            <a href="https://www.grasp.upenn.edu/">GRASP Laboratory</a>.
+          </p>
+          <p>
+            Before Penn, I received my B.Eng. from the
+            <a href="https://www.uestc.edu.cn/">University of Electronic Science and Technology of China (UESTC)</a>.
+          </p>
+          <p class="links">
+            <a href="mailto:hua2002@seas.upenn.edu">Email</a> &nbsp;/&nbsp;
+            <a href="#">Google Scholar</a> &nbsp;/&nbsp;
+            <a href="#">GitHub</a>
+          </p>
+        </td>
+        <td class="pad" style="width:37%; max-width:37%;">
+          <div class="swap">
+            <img class="profile" src="images/profile.jpg" alt="Photo of Yile Hua">
+            <img class="profile swap-top" src="images/profile_alt.jpg" alt="" aria-hidden="true">
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+
+    <!-- Research -->
+    <table class="block"><tbody>
+      <tr>
+        <td class="pad">
+          <h2>Research</h2>
+          <p>
+            My research is in 3D computer vision. I am interested in how machines can understand the dynamic 3D world
+            from everyday videos and, in the long run, how robots can use this understanding to act in it. Currently,
+            I work on 4D reconstruction of dynamic scenes from a single casual video.
+          </p>
+        </td>
+      </tr>
+    </tbody></table>
+
+    <!-- Publications -->
+    <table class="block stack"><tbody>
+      <tr class="highlight">
+        <td class="pad" style="width:40%;">
+          <div class="swap vswap">
+            <video class="thumb" src="images/dynmf2_bear_reveal.mp4" poster="images/dynmf2_bear_reveal_poster.jpg" autoplay muted loop playsinline aria-label="DynMF2 on a video of a walking bear: each rigid motion in its own colour, with its SE(3) frame"></video>
+            <video class="thumb swap-top" src="images/dynmf2_bear_motion.mp4" poster="images/dynmf2_bear_motion_poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+          </div>
+        </td>
+        <td class="pad-top" style="width:60%;">
+          <a href="https://arxiv.org/abs/2611.34931">
+            <papertitle>DynMF2: Rigid Motion Factorization by Expectation-Maximization for Monocular 4D Reconstruction and Motion Segmentation</papertitle>
+          </a>
+          <br>
+          <a href="https://agelosk.github.io/">Agelos Kratimenos</a>*,
+          <strong>Yile Hua*</strong>,
+          <a href="https://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>
+          <br>
+          <em>arXiv</em>, 2026
+          <br>
+          <a href="https://arxiv.org/abs/2611.34931">arXiv</a>
+          <p>
+            We discover the few rigid motions behind a dynamic scene from a single video, using Expectation-Maximization
+            on 3D point trajectories and no masks. Each 3D Gaussian follows exactly one motion, so the
+            motions that reconstruct the scene in 4D also segment what moves.
+          </p>
+          <p class="note">* Equal contribution.</p>
+        </td>
+      </tr>
+    </tbody></table>
+
+    <!-- Footer -->
+    <table class="block"><tbody>
+      <tr>
+        <td class="footer">
+          Website template from <a href="https://github.com/jonbarron/jonbarron.github.io">Jon Barron</a>.
+        </td>
+      </tr>
+    </tbody></table>
+
+  </td></tr></tbody></table>
+
+  <script>
+    // Keep the two stacked clips of the paper thumbnail on the same frame, so the hover only changes the look.
+    document.querySelectorAll('.vswap').forEach(function (el) {
+      var v = el.querySelectorAll('video'), base = v[0], top = v[1];
+      function sync() {
+        if (Math.abs(top.currentTime - base.currentTime) > 0.12) top.currentTime = base.currentTime;
+      }
+      el.addEventListener('mouseenter', sync);
+      base.addEventListener('timeupdate', sync);
+    });
+  </script>
+</body>
+</html>

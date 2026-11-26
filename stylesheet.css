@@ -1,0 +1,152 @@
+/* Layout and type in the style of Jon Barron's academic homepage template
+   (https://github.com/jonbarron/jonbarron.github.io). */
+
+body, td, th, tr, p, a {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Link colours: Barron's blue, turning orange on hover. */
+a {
+  color: #1772d0;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: #f09228;
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.page {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.block {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+
+heading,
+h2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+
+papertitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.links {
+  text-align: center;
+}
+
+.profile {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+.thumb {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.highlight {
+  background-color: transparent;     /* Barron's yellow would be #ffffd0 */
+}
+
+/* Hover swap: a second picture / clip stacked on the first, shown on hover (Barron's mouse-over thumbnails). */
+.swap {
+  position: relative;
+}
+
+.swap > img,
+.swap > video {
+  display: block;
+}
+
+.swap > .swap-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.swap:hover > .swap-top {
+  opacity: 1;
+}
+
+
+.pad {
+  padding: 20px;
+  vertical-align: middle;
+}
+
+.pad-top {
+  padding: 20px;
+  vertical-align: top;
+}
+
+.note {
+  color: #666666;
+}
+
+.footer {
+  font-size: small;
+  text-align: right;
+  padding: 0 20px 20px 20px;
+}
+
+/* Phones: stack the photo under the introduction and the thumbnail above each paper. */
+@media (max-width: 600px) {
+  .stack,
+  .stack > tbody,
+  .stack > tbody > tr,
+  .stack > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .pad,
+  .pad-top {
+    padding: 12px 16px;
+  }
+  .swap:not(.vswap) {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
